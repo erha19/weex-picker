@@ -4,7 +4,7 @@ import TimePicker from './TimePicker'
 import Pikaday from 'pikaday'
 const pickerModule = {
   pick: function (options, confirmCallback, cancelCallback) {
-    options.height = weex && weex.config.env.scale && options.height ? +options.height.replace('px','') / weex.config.env.scale : options.height
+    options.height = weex && weex.config.env.scale && options.height ? +options.height.replace('px','') * weex.config.env.scale : options.height
     options.data = options.items
     options.defaultIndexs = options.index
     options.confirmCallback = confirmCallback
@@ -75,7 +75,7 @@ const pickerModule = {
     document.body.appendChild(mask)
   },
   pickTime: function (options, confirmCallback) {
-    options.height = weex && weex.config.env.scale && options.height ? +options.height.replace('px','') / weex.config.env.scale : options.height
+    options.height = weex && weex.config.env.scale && options.height ? +options.height.replace('px','') * weex.config.env.scale : options.height
     options.value = options.value;
     options.confirmCallback = confirmCallback;
     options.sender = this.sender;
